@@ -114,14 +114,14 @@ $$._MatchImplementation = {"":"Object;pattern>,str,start,end,_groups",
  operator$index$1: function(index) {
   var t1 = this._groups;
   if (typeof t1 !== 'string' && (typeof t1 !== 'object' || t1 === null || t1.constructor !== Array && !t1.is$JavaScriptIndexingBehavior()))
-    return this.operator$index$1$bailout1(1, index, t1);
+    return this.operator$index$1$bailout2(1, index, t1);
   if (index !== (index | 0))
     throw $.iae(index);
   if (index < 0 || index >= t1.length)
     throw $.ioore(index);
   return t1[index];
 },
- operator$index$1$bailout1: function(state0, index, t1) {
+ operator$index$1$bailout2: function(state0, index, t1) {
   return $.getInterceptor$JSStringJSArray(t1).operator$index$1(t1, index);
 }
 };
@@ -1597,7 +1597,7 @@ $$.MenuScreen = {"":"Object;scene>,rng>,grendel=,trees,interval<,intro_started>,
   $.getInterceptor$JSArray(t1).add$1(t1, this.get$drawMainMenu());
   t1 = $.ui.get$onClick();
   $.getInterceptor$JSArray(t1).add$1(t1, this.get$startIntro());
-  this.interval = $.window().setInterval$2(new $.anon60(this), 16);
+  this.interval = $.window().setInterval$2(new $.anon50(this), 16);
 }
 };
 
@@ -2205,14 +2205,14 @@ $$.Warrior = {"":"Character;speed,target=,target_offset,target_angle_offset,targ
   return $.sqrt($.pow($.sub(w.get$x(), this.x), 2) + $.pow($.sub(w.get$y(), this.y), 2));
 },
  getTarget$1: function(enemies) {
-  var rng, t1, distances, smallest, index, i;
+  var rng, t1, distances, index, i, smallest;
   rng = $.Random_Random(null);
   if (rng.nextBool$0() === true) {
     t1 = $.getInterceptor$JSArray(enemies);
     distances = t1.map$1(enemies, new $.Warrior_getTarget_anon(this));
     if (typeof distances !== 'string' && (typeof distances !== 'object' || distances === null || distances.constructor !== Array && !distances.is$JavaScriptIndexingBehavior()))
       return this.getTarget$1$bailout(1, enemies, t1, distances);
-    for (smallest = 9999, index = 0, i = 0; i < distances.length; ++i)
+    for (index = 0, i = 0, smallest = 9999; i < distances.length; ++i)
       if ($.ltB(distances[i], smallest)) {
         if (i >= distances.length)
           throw $.ioore(i);
@@ -2240,7 +2240,7 @@ $$.Warrior = {"":"Character;speed,target=,target_offset,target_angle_offset,targ
     case 0:
       rng = $.Random_Random(null);
     case 1:
-      var rng, t1, distances, enemies, t2, smallest, index, i;
+      var rng, t1, distances, enemies, t2, index, i, smallest;
       if (state0 === 1 || state0 === 0 && rng.nextBool$0() === true)
         switch (state0) {
           case 0:
@@ -2248,7 +2248,7 @@ $$.Warrior = {"":"Character;speed,target=,target_offset,target_angle_offset,targ
             distances = t1.map$1(enemies, new $.Warrior_getTarget_anon(this));
           case 1:
             state0 = 0;
-            for (t2 = $.getInterceptor$JSStringJSArray(distances), smallest = 9999, index = 0, i = 0; $.ltB(i, t2.get$length(distances)); ++i)
+            for (t2 = $.getInterceptor$JSStringJSArray(distances), index = 0, i = 0, smallest = 9999; $.ltB(i, t2.get$length(distances)); ++i)
               if ($.ltB(t2.operator$index$1(distances, i), smallest)) {
                 smallest = t2.operator$index$1(distances, i);
                 index = i;
@@ -2726,7 +2726,7 @@ $$.LevelBull = {"":"Object;scene>,inbounds>,not_inbounds>,outbounds>,truth,gears
   $.getInterceptor$JSArray(t1).add$1(t1, this.grendel);
   t1 = this.scene.get$actors();
   $.getInterceptor$JSArray(t1).add$1(t1, this.bull);
-  $.zodiacIntro($.assets.get$zodiac_taurus(), this.scene, new $.anon59(this));
+  $.zodiacIntro($.assets.get$zodiac_taurus(), this.scene, new $.anon60(this));
 }
 };
 
@@ -3068,7 +3068,7 @@ $$.LevelDragon = {"":"Object;scene>,ui,not_inbounds>,inbounds>,outbounds>,dragon
   $.getInterceptor$JSArray(t1).add$1(t1, this.grendel);
   box_0.interval_0 = null;
   box_0.fadeOutTime_1 = 0;
-  $.zodiacIntro($.assets.get$zodiac_leo(), this.scene, new $.anon58(box_0, this));
+  $.zodiacIntro($.assets.get$zodiac_leo(), this.scene, new $.anon59(box_0, this));
 }
 };
 
@@ -3264,7 +3264,7 @@ $$.LevelOrk = {"":"Object;scene>,grendel=,ork=,statues>,notes>,warriors>,ork_tim
   $.getInterceptor$JSArray(t1).add$1(t1, this.grendel);
   t1 = this.scene.actors;
   $.getInterceptor$JSArray(t1).add$1(t1, this.ork);
-  $.zodiacIntro($.assets.get$zodiac_capricorn(), this.scene, new $.anon57(this));
+  $.zodiacIntro($.assets.get$zodiac_capricorn(), this.scene, new $.anon58(this));
 }
 };
 
@@ -3524,7 +3524,7 @@ $$.LevelBeowulf = {"":"Object;scene>,grendel=,party_people,cake=,beowulf,sign,in
   this.grendel = $.Grendel$(0, 1250);
   t3 = this.scene.get$actors();
   $.getInterceptor$JSArray(t3).add$1(t3, this.grendel);
-  t3 = $.window().setInterval$2(new $.anon56(this), 16);
+  t3 = $.window().setInterval$2(new $.anon57(this), 16);
   this.interval = t3;
   this.scene.set$interval(t3);
 }
@@ -3692,7 +3692,7 @@ $$.LevelBeowulf2 = {"":"Object;ARENA_SIZE,rng>,interval<,grendel=,evil>,battle_s
   this.scene = $.Scene$();
   box_0.tt_0 = 0;
   t1 = this.scene.get$postrender();
-  $.getInterceptor$JSArray(t1).add$1(t1, new $.anon55(box_0));
+  $.getInterceptor$JSArray(t1).add$1(t1, new $.anon56(box_0));
   this.grendel = $.Grendel$(0, 200);
   this.evil = $.Character$(1, null, 100, null, "grendel", 70, 0, 0);
   this.evil.set$visible(false);
@@ -3822,8 +3822,8 @@ $$.LevelEnding = {"":"Object;rng>,scene>,grendel=,camera_follow>,follow_velocity
   this.camera_follow = $.Vector2$(t1.get$x(), t1.get$y());
   this.follow_velocity = $.Vector2$(0, 0);
   t2 = this.scene.postrender;
-  $.getInterceptor$JSArray(t2).add$1(t2, new $.anon50());
-  t2 = $.window().setInterval$2(new $.anon51(this), 16);
+  $.getInterceptor$JSArray(t2).add$1(t2, new $.anon51());
+  t2 = $.window().setInterval$2(new $.anon52(this), 16);
   this.interval = t2;
   this.scene.interval = t2;
 }
@@ -3835,10 +3835,10 @@ $$.DeathMenu = {"":"Object;scene>",
   this.scene = $.Scene$();
   box_0.t_0 = 0;
   t1 = this.scene.postrender;
-  $.getInterceptor$JSArray(t1).add$1(t1, new $.anon52());
+  $.getInterceptor$JSArray(t1).add$1(t1, new $.anon53());
   t1 = this.scene.postrender;
-  $.getInterceptor$JSArray(t1).add$1(t1, new $.anon53(box_0));
-  t1 = $.window().setInterval$2(new $.anon54(box_0, this), 16);
+  $.getInterceptor$JSArray(t1).add$1(t1, new $.anon54(box_0));
+  t1 = $.window().setInterval$2(new $.anon55(box_0, this), 16);
   this.scene.interval = t1;
 }
 };
@@ -3996,14 +3996,14 @@ $$._ChildNodeListLazy = {"":"Object;_this",
  operator$index$1: function(index) {
   var t1 = this._this.childNodes;
   if (typeof t1 !== 'string' && (typeof t1 !== 'object' || t1 === null || t1.constructor !== Array && !t1.is$JavaScriptIndexingBehavior()))
-    return this.operator$index$1$bailout2(1, index, t1);
+    return this.operator$index$1$bailout1(1, index, t1);
   if (index !== (index | 0))
     throw $.iae(index);
   if (index < 0 || index >= t1.length)
     throw $.ioore(index);
   return t1[index];
 },
- operator$index$1$bailout2: function(state0, index, t1) {
+ operator$index$1$bailout1: function(state0, index, t1) {
   return $.getInterceptor$JSStringJSArray(t1).operator$index$1(t1, index);
 },
  is$List: function() { return true; },
@@ -4103,6 +4103,15 @@ $$._VariableSizeListIterator = {"":"Object;",
 
 $$._Random = {"":"Object;",
  nextInt$1: function(max) {
+  if (typeof max !== 'number')
+    return this.nextInt$1$bailout(1, max);
+  if (max < 0)
+    throw $.$$throw($.ArgumentError$("negative max: " + $.S(max)));
+  if (max > 4294967295)
+    max = 4294967295;
+  return (Math.random() * max) >>> 0;
+},
+ nextInt$1$bailout: function(state0, max) {
   if ($.ltB(max, 0))
     throw $.$$throw($.ArgumentError$("negative max: " + $.S(max)));
   if ($.gtB(max, 4294967295))
@@ -4119,7 +4128,7 @@ $$._Random = {"":"Object;",
 
 $$.main_anon = {"":"Closure;",
  call$0: function() {
-  $.LevelEnding$();
+  $.MenuScreen$();
 }
 };
 
@@ -4682,113 +4691,20 @@ $$.NoSuchMethodError_toString_anon = {"":"Closure;box_0",
 }
 };
 
-$$.anon50 = {"":"Closure;",
- call$1: function(c) {
-  c.drawImage$5($.assets.get$img_fog(), 0, 0, 1920, 994);
-}
-};
-
-$$.anon51 = {"":"Closure;this_0",
+$$.anon50 = {"":"Closure;this_0",
  call$0: function() {
-  var t1, t2, t3, t4;
+  var t1, t2;
   t1 = this.this_0;
-  t2 = $.ltB(t1.get$phase(), 4);
-  t3 = t1.get$scene();
-  if (t2) {
-    $.uiControl(t1.get$grendel(), t3, t1.get$inbounds(), t1.get$not_inbounds(), t1.get$outbounds(), false);
-    t2 = t1.get$scene().get$camera();
-    t3 = t2.get$x();
-    t2.set$x($.sub(t3, $.div($.sub(t3, t1.get$camera_follow().get$x()), 8)));
-    t2 = t1.get$scene().get$camera();
-    t4 = t2.get$y();
-    t2.set$y($.sub(t4, $.div($.sub(t4, t1.get$camera_follow().get$y()), 8)));
-    t2 = t1.get$follow_velocity();
-    t2.set$x($.sub(t2.get$x(), $.add($.div($.sub(t1.get$camera_follow().get$x(), t1.get$grendel().get$x()), 20), $.sub($.mul($.mul(t1.get$rng().nextDouble$0(), 2), 2), 2))));
-    t2 = t1.get$follow_velocity();
-    t2.set$y($.sub(t2.get$y(), $.add($.div($.sub(t1.get$camera_follow().get$y(), t1.get$grendel().get$y()), 20), $.sub($.mul($.mul(t1.get$rng().nextDouble$0(), 2), 2), 2))));
-    t2 = t1.get$follow_velocity();
-    t2.set$x($.div(t2.get$x(), 1.05));
-    t2 = t1.get$follow_velocity();
-    t2.set$y($.div(t2.get$y(), 1.05));
-    t2 = t1.get$camera_follow();
-    t2.set$x($.add(t2.get$x(), t1.get$follow_velocity().get$x()));
-    t2 = t1.get$camera_follow();
-    t2.set$y($.add(t2.get$y(), t1.get$follow_velocity().get$y()));
-  } else {
-    t2 = t3.get$camera();
-    t3 = t2.get$y();
-    t2.set$y($.sub(t3, $.div($.sub(t3, 4000), 32)));
-  }
-  t1.set$t($.add(t1.get$t(), 1));
-  switch (t1.get$phase()) {
-    case 0:
-      t1.updateUncontrolledMovement$0();
-      if ($.gtB(t1.get$grendel().get$y(), 700))
-        t1.set$phase($.add(t1.get$phase(), 1));
-      break;
-    case 1:
-      t1.phase2$0();
-      break;
-    case 2:
-      t1.phase3$0();
-      break;
-    case 3:
-      t1.phase4$0();
-      break;
-    case 4:
-      t1.updateAnimals$0();
-      t2 = t1.get$grendel();
-      t2.set$y($.add(t2.get$y(), 5));
-      break;
-  }
+  t2 = t1.get$scene().get$camera();
+  t2.set$y($.sub(t2.get$y(), t1.get$UPWARD_SPEED()));
+  t1.controlTrees$0();
+  if (t1.get$intro_started() !== true)
+    t1.controlMenu$0();
+  else
+    t1.controlIntro$0();
   t1.get$scene().update$0();
   t1.get$scene().render$0();
-}
-};
-
-$$._anon2 = {"":"Closure;this_1",
- call$1: function(b) {
-  return b.debugDraw$1(this.this_1.get$scene());
-}
-};
-
-$$._anon3 = {"":"Closure;this_2",
- call$1: function(b) {
-  return b.debugDraw$1(this.this_2.get$scene());
-}
-};
-
-$$._anon4 = {"":"Closure;this_3",
- call$1: function(b) {
-  return b.debugDraw$1(this.this_3.get$scene());
-}
-};
-
-$$.Character_timeProject_anon = {"":"Closure;box_0,this_1,render_2",
- call$1: function(c) {
-  var t1, oa, t2, t3, i, t4, t5, t6;
-  t1 = this.this_1;
-  oa = t1.get$alpha();
-  for (t2 = this.box_0, t3 = this.render_2, i = 0; i < 3; ++i) {
-    c.save$0();
-    t4 = t2.xs_0;
-    t5 = $.sub($.getInterceptor$JSStringJSArray(t4).operator$index$1(t4, i), t1.get$x());
-    t6 = t2.ys_1;
-    c.translate$2(t5, $.sub($.getInterceptor$JSStringJSArray(t6).operator$index$1(t6, i), t1.get$y()));
-    t1.set$alpha(0.25 + i / 4);
-    t3.call$1(c);
-    c.restore$0();
-  }
-  t1.set$alpha(oa);
-  t3.call$1(c);
-  t3 = t2.xs_0;
-  $.getInterceptor$JSArray(t3).add$1(t3, t1.get$x());
-  t3 = t2.ys_1;
-  $.getInterceptor$JSArray(t3).add$1(t3, t1.get$y());
-  t3 = t2.xs_0;
-  t2.xs_0 = $.getInterceptor$JSArray(t3).getRange$2(t3, 1, 3);
-  t4 = t2.ys_1;
-  t2.ys_1 = $.getInterceptor$JSArray(t4).getRange$2(t4, 1, 3);
+  t1.set$t($.add(t1.get$t(), 1));
 }
 };
 
@@ -4974,6 +4890,34 @@ $$.Character_BasicAnimationRender_anon = {"":"Closure;box_0,this_1,animation_2",
 }
 };
 
+$$.Character_timeProject_anon = {"":"Closure;box_0,this_1,render_2",
+ call$1: function(c) {
+  var t1, oa, t2, t3, i, t4, t5, t6;
+  t1 = this.this_1;
+  oa = t1.get$alpha();
+  for (t2 = this.box_0, t3 = this.render_2, i = 0; i < 3; ++i) {
+    c.save$0();
+    t4 = t2.xs_0;
+    t5 = $.sub($.getInterceptor$JSStringJSArray(t4).operator$index$1(t4, i), t1.get$x());
+    t6 = t2.ys_1;
+    c.translate$2(t5, $.sub($.getInterceptor$JSStringJSArray(t6).operator$index$1(t6, i), t1.get$y()));
+    t1.set$alpha(0.25 + i / 4);
+    t3.call$1(c);
+    c.restore$0();
+  }
+  t1.set$alpha(oa);
+  t3.call$1(c);
+  t3 = t2.xs_0;
+  $.getInterceptor$JSArray(t3).add$1(t3, t1.get$x());
+  t3 = t2.ys_1;
+  $.getInterceptor$JSArray(t3).add$1(t3, t1.get$y());
+  t3 = t2.xs_0;
+  t2.xs_0 = $.getInterceptor$JSArray(t3).getRange$2(t3, 1, 3);
+  t4 = t2.ys_1;
+  t2.ys_1 = $.getInterceptor$JSArray(t4).getRange$2(t4, 1, 3);
+}
+};
+
 $$.Scene_render_anon = {"":"Closure;this_0",
  call$1: function(actor) {
   var t1 = this.this_0;
@@ -4998,6 +4942,88 @@ $$.Scene_render_anon0 = {"":"Closure;this_1",
 $$.Scene_update_anon = {"":"Closure;",
  call$1: function(actor) {
   return actor.update$0();
+}
+};
+
+$$.anon51 = {"":"Closure;",
+ call$1: function(c) {
+  c.drawImage$5($.assets.get$img_fog(), 0, 0, 1920, 994);
+}
+};
+
+$$.anon52 = {"":"Closure;this_0",
+ call$0: function() {
+  var t1, t2, t3, t4;
+  t1 = this.this_0;
+  t2 = $.ltB(t1.get$phase(), 4);
+  t3 = t1.get$scene();
+  if (t2) {
+    $.uiControl(t1.get$grendel(), t3, t1.get$inbounds(), t1.get$not_inbounds(), t1.get$outbounds(), false);
+    t2 = t1.get$scene().get$camera();
+    t3 = t2.get$x();
+    t2.set$x($.sub(t3, $.div($.sub(t3, t1.get$camera_follow().get$x()), 8)));
+    t2 = t1.get$scene().get$camera();
+    t4 = t2.get$y();
+    t2.set$y($.sub(t4, $.div($.sub(t4, t1.get$camera_follow().get$y()), 8)));
+    t2 = t1.get$follow_velocity();
+    t2.set$x($.sub(t2.get$x(), $.add($.div($.sub(t1.get$camera_follow().get$x(), t1.get$grendel().get$x()), 20), $.sub($.mul($.mul(t1.get$rng().nextDouble$0(), 2), 2), 2))));
+    t2 = t1.get$follow_velocity();
+    t2.set$y($.sub(t2.get$y(), $.add($.div($.sub(t1.get$camera_follow().get$y(), t1.get$grendel().get$y()), 20), $.sub($.mul($.mul(t1.get$rng().nextDouble$0(), 2), 2), 2))));
+    t2 = t1.get$follow_velocity();
+    t2.set$x($.div(t2.get$x(), 1.05));
+    t2 = t1.get$follow_velocity();
+    t2.set$y($.div(t2.get$y(), 1.05));
+    t2 = t1.get$camera_follow();
+    t2.set$x($.add(t2.get$x(), t1.get$follow_velocity().get$x()));
+    t2 = t1.get$camera_follow();
+    t2.set$y($.add(t2.get$y(), t1.get$follow_velocity().get$y()));
+  } else {
+    t2 = t3.get$camera();
+    t3 = t2.get$y();
+    t2.set$y($.sub(t3, $.div($.sub(t3, 4000), 32)));
+  }
+  t1.set$t($.add(t1.get$t(), 1));
+  switch (t1.get$phase()) {
+    case 0:
+      t1.updateUncontrolledMovement$0();
+      if ($.gtB(t1.get$grendel().get$y(), 700))
+        t1.set$phase($.add(t1.get$phase(), 1));
+      break;
+    case 1:
+      t1.phase2$0();
+      break;
+    case 2:
+      t1.phase3$0();
+      break;
+    case 3:
+      t1.phase4$0();
+      break;
+    case 4:
+      t1.updateAnimals$0();
+      t2 = t1.get$grendel();
+      t2.set$y($.add(t2.get$y(), 5));
+      break;
+  }
+  t1.get$scene().update$0();
+  t1.get$scene().render$0();
+}
+};
+
+$$._anon2 = {"":"Closure;this_1",
+ call$1: function(b) {
+  return b.debugDraw$1(this.this_1.get$scene());
+}
+};
+
+$$._anon3 = {"":"Closure;this_2",
+ call$1: function(b) {
+  return b.debugDraw$1(this.this_2.get$scene());
+}
+};
+
+$$._anon4 = {"":"Closure;this_3",
+ call$1: function(b) {
+  return b.debugDraw$1(this.this_3.get$scene());
 }
 };
 
@@ -5063,6 +5089,63 @@ $$.LevelEnding_phase4_anon = {"":"Closure;box_0,this_1",
 }
 };
 
+$$.LevelEnding_phase3_anon = {"":"Closure;",
+ call$1: function(tree) {
+  var t1 = $.add(tree.get$alpha(), 0.01);
+  tree.set$alpha(t1);
+  return t1;
+}
+};
+
+$$.LevelEnding_phase3_anon0 = {"":"Closure;",
+ call$1: function(tree) {
+  var t1 = $.add(tree.get$alpha(), 0.01);
+  tree.set$alpha(t1);
+  return t1;
+}
+};
+
+$$.LevelEnding_phase3_anon1 = {"":"Closure;box_0",
+ call$1: function(c) {
+  var t1 = this.box_0;
+  t1.t_0 = $.add(t1.t_0, 1);
+  c.set$fillStyle("#000");
+  c.set$globalAlpha($.div(t1.t_0, 120));
+  c.set$font("italic 48px Calibri");
+  c.fillText$3("Poor Grendel's had an accident", 1320, 437);
+}
+};
+
+$$.uiControl_anon = {"":"Closure;char_1",
+ call$1: function(b) {
+  return b.push$2(this.char_1, false);
+}
+};
+
+$$.uiControl_anon0 = {"":"Closure;char_2,tmp_nb_3",
+ call$1: function(b) {
+  var t1, t2;
+  t1 = b.objectIn$1(this.char_2) === true;
+  if (t1) {
+    t2 = this.tmp_nb_3;
+    $.getInterceptor$JSArray(t2).add$1(t2, b);
+  }
+  return !t1;
+}
+};
+
+$$.uiControl_anon1 = {"":"Closure;box_0,char_4",
+ call$1: function(b) {
+  var _in, t1;
+  _in = b.objectIn$1(this.char_4);
+  if (_in !== true) {
+    t1 = this.box_0.not_inbounds_0;
+    $.getInterceptor$JSArray(t1).add$1(t1, b);
+  }
+  return _in;
+}
+};
+
 $$.LevelBeowulf2_update_anon = {"":"Closure;this_0",
  call$1: function(note) {
   var t1, t2, t3, t4, t5, t6;
@@ -5121,36 +5204,6 @@ $$.LevelBeowulf2_update_anon1 = {"":"Closure;this_2",
 }
 };
 
-$$.uiControl_anon = {"":"Closure;char_1",
- call$1: function(b) {
-  return b.push$2(this.char_1, false);
-}
-};
-
-$$.uiControl_anon0 = {"":"Closure;char_2,tmp_nb_3",
- call$1: function(b) {
-  var t1, t2;
-  t1 = b.objectIn$1(this.char_2) === true;
-  if (t1) {
-    t2 = this.tmp_nb_3;
-    $.getInterceptor$JSArray(t2).add$1(t2, b);
-  }
-  return !t1;
-}
-};
-
-$$.uiControl_anon1 = {"":"Closure;box_0,char_4",
- call$1: function(b) {
-  var _in, t1;
-  _in = b.objectIn$1(this.char_4);
-  if (_in !== true) {
-    t1 = this.box_0.not_inbounds_0;
-    $.getInterceptor$JSArray(t1).add$1(t1, b);
-  }
-  return _in;
-}
-};
-
 $$.LevelBeowulf2_switchMode_anon = {"":"Closure;",
  call$1: function(note) {
   return note.remove$0();
@@ -5188,7 +5241,7 @@ $$.grendel_hurt_anon = {"":"Closure;box_0",
 }
 };
 
-$$.anon52 = {"":"Closure;",
+$$.anon53 = {"":"Closure;",
  call$1: function(c) {
   c.set$fillStyle("#000");
   c.set$font("italic 48px Calibri");
@@ -5198,7 +5251,7 @@ $$.anon52 = {"":"Closure;",
 }
 };
 
-$$.anon53 = {"":"Closure;box_0",
+$$.anon54 = {"":"Closure;box_0",
  call$1: function(c) {
   var t1, t2;
   t1 = this.box_0;
@@ -5211,7 +5264,7 @@ $$.anon53 = {"":"Closure;box_0",
 }
 };
 
-$$.anon54 = {"":"Closure;box_0,this_1",
+$$.anon55 = {"":"Closure;box_0,this_1",
  call$0: function() {
   var t1, t2;
   t1 = this.this_1;
@@ -5228,7 +5281,7 @@ $$.anon54 = {"":"Closure;box_0,this_1",
 }
 };
 
-$$.anon55 = {"":"Closure;box_0",
+$$.anon56 = {"":"Closure;box_0",
  call$1: function(c) {
   var t1, t2;
   t1 = this.box_0;
@@ -5285,7 +5338,7 @@ $$.showHealthBar_anon = {"":"Closure;enemy_bar_0,width_1,height_2",
 }
 };
 
-$$.anon56 = {"":"Closure;this_0",
+$$.anon57 = {"":"Closure;this_0",
  call$0: function() {
   var t1, t2;
   t1 = this.this_0;
@@ -5609,7 +5662,7 @@ $$.LevelOrk_controlGrendelAttack__anon = {"":"Closure;remaining_statue_1",
 }
 };
 
-$$.anon57 = {"":"Closure;this_0",
+$$.anon58 = {"":"Closure;this_0",
  call$0: function() {
   var t1, t2;
   t1 = $.window();
@@ -5874,7 +5927,7 @@ $$.LevelOrk_controlWarriors_anon = {"":"Closure;this_0",
 }
 };
 
-$$.anon58 = {"":"Closure;box_0,this_1",
+$$.anon59 = {"":"Closure;box_0,this_1",
  call$0: function() {
   var t1, t2, t3, interval;
   t1 = $.window();
@@ -6608,7 +6661,7 @@ $$.LevelShaper_stage1_anon0 = {"":"Closure;this_1,grendel_2,trees_3,meadhall_4,r
 }
 };
 
-$$.anon59 = {"":"Closure;this_0",
+$$.anon60 = {"":"Closure;this_0",
  call$0: function() {
   var t1, t2;
   t1 = $.window();
@@ -6674,23 +6727,6 @@ $$.__anon13 = {"":"Closure;this_5",
 }
 };
 
-$$.anon60 = {"":"Closure;this_0",
- call$0: function() {
-  var t1, t2;
-  t1 = this.this_0;
-  t2 = t1.get$scene().get$camera();
-  t2.set$y($.sub(t2.get$y(), t1.get$UPWARD_SPEED()));
-  t1.controlTrees$0();
-  if (t1.get$intro_started() !== true)
-    t1.controlMenu$0();
-  else
-    t1.controlIntro$0();
-  t1.get$scene().update$0();
-  t1.get$scene().render$0();
-  t1.set$t($.add(t1.get$t(), 1));
-}
-};
-
 $$.MenuScreen_controlTrees_anon = {"":"Closure;this_0",
  call$1: function(tree) {
   var t1, t2, t3, t4;
@@ -6713,33 +6749,6 @@ $$.MenuScreen_controlTrees_anon = {"":"Closure;this_0",
       tree.set$x(1920 * t1);
     }
   }
-}
-};
-
-$$.LevelEnding_phase3_anon = {"":"Closure;",
- call$1: function(tree) {
-  var t1 = $.add(tree.get$alpha(), 0.01);
-  tree.set$alpha(t1);
-  return t1;
-}
-};
-
-$$.LevelEnding_phase3_anon0 = {"":"Closure;",
- call$1: function(tree) {
-  var t1 = $.add(tree.get$alpha(), 0.01);
-  tree.set$alpha(t1);
-  return t1;
-}
-};
-
-$$.LevelEnding_phase3_anon1 = {"":"Closure;box_0",
- call$1: function(c) {
-  var t1 = this.box_0;
-  t1.t_0 = $.add(t1.t_0, 1);
-  c.set$fillStyle("#000");
-  c.set$globalAlpha($.div(t1.t_0, 120));
-  c.set$font("italic 48px Calibri");
-  c.fillText$3("Poor Grendel's had an accident", 1320, 437);
 }
 };
 
@@ -8520,45 +8529,45 @@ $.grendelHealth = 100;
 $._enemyHealth = 100;
 $.healthBarOn = true;
 $.FPS = 60;
+$.ZODIAC_TIME = 30;
 $.DEBUG_MODE = false;
 $.HUMAN_SIZE_X = 80;
-$.HUMAN_SIZE_Y = 140;
 $.GAME_SIZE_X = 1920;
 $.GAME_SIZE_Y = 994;
-$.GRENDEL_SIZE_X = 70;
 $.GRENDEL_SIZE_Y = 100;
 $.TREE_SIZE_X = 200;
 $.TREE_SIZE_Y = 266;
-$.GOLD_SIZE_X = 60;
-$.ANIM_TIME = 4;
-$.BUSH_SIZE_Y = 80;
-$.GOLD_SIZE_Y = 80;
-$.BULL_SIZE_Y = 100;
-$.ZODIAC_TIME = 30;
-$.BULL_SIZE_X = 140;
 $.BUSH_SIZE_X = 150;
-$.LevelDragon_DRAGON_SPEED = 5;
-$.Animation_STAND = 0;
-$.LevelDragon_AREA_SIZE = 750;
-$.Animation_RUN_SIDE = 1;
+$.BUSH_SIZE_Y = 80;
 $.Animation_RUN_UP = 2;
+$.Animation_RUN_SIDE = 1;
+$.Animation_STAND = 0;
 $.Animation_RUN_DOWN = 3;
+$.GRENDEL_SIZE_X = 70;
+$.ANIM_TIME = 4;
 $.Animation_ANIM_4DIRECTION = 0;
+$.GOLD_SIZE_Y = 80;
 $.Animation_ANIM_2FRAME_CUBE = 1;
+$.BULL_SIZE_Y = 100;
 $.Animation_ANIM_4DIRECTION_2FRAME = 2;
 $.Animation_ANIM_4DIRECTION_4FRAME = 3;
 $.Animation_ANIM_3FRAME = 4;
 $.Animation_ANIM_STANDLR = 5;
 $.Animation_ANIM_2FRAME = 6;
+$.HUMAN_SIZE_Y = 140;
+$.GOLD_SIZE_X = 60;
+$.OrkWarrior_SPEED = 5;
+$.LevelBull_AREA = 500;
 $._HashMapImpl__DELETED_KEY = Isolate.$isolateProperties.CONSTANT5;
 $._HashMapImpl__INITIAL_CAPACITY = 8;
+$.BULL_SIZE_X = 140;
 $.Primitives_hashCodeSeed = 0;
 $.Primitives_DOLLAR_CHAR_VALUE = 36;
 $._getTypeNameOf = null;
 $._cachedBrowserPrefix = null;
-$.OrkWarrior_SPEED = 5;
+$.LevelDragon_DRAGON_SPEED = 5;
+$.LevelDragon_AREA_SIZE = 750;
 $.PI = 3.141592653589793;
-$.LevelBull_AREA = 500;
 $.ui = null;
 $.assets = null;
 $.audio = null;
